@@ -1,0 +1,14 @@
+---
+
+### 🧩 `layouts/shortcodes/icalfilelist.html`
+
+```gohtml
+{{ $calendars := site.Data.ical.calendars }}
+{{ range $cal := $calendars }}
+  <div style="margin-bottom: 1.5em;">
+    <p><strong>{{ $cal.file }}</strong></p>
+    <p>{{ $cal.description }}</p>
+    <input type="text" value="{{ "/ical/" | relURL }}{{ $cal.file }}" readonly
+           onclick="this.select();" style="width: 100%; font-family: monospace;" />
+  </div>
+{{ end }}

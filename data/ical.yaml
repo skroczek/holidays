@@ -1,0 +1,10 @@
+calendars:
+  - file: de_by.ics
+    description: Contains official public holidays for Bavaria (Germany).
+    region: BY
+    categories: ["public"]
+
+  - file: de_by_un.ics
+    description: Contains only unofficial holidays for Bavaria.
+    region: BY
+    categories: ["unofficial"]

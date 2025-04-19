@@ -1,0 +1,29 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.log
+.env
+.venv/
+venv/
+*.sqlite3
+
+# IDEs (PyCharm, VSCode etc.)
+.idea/
+.vscode/
+*.swp
+
+# ---- Hugo ----
+# Hugo build output
+/public/
+/resources/
+
+# Avoid committing generated calendar files
+/static/ical/*.ics
+
+# Keep the directory itself
+!static/ical/.gitkeep
+
+# Node/npm cache (if used for Hugo themes or tooling)
+node_modules/
+package-lock.json
