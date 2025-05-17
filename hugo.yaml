@@ -1,4 +1,4 @@
-baseURL: "https://skroczek.github.io/ical-holidays/"
+baseURL: ""
 title: "ical-holidays"
 theme: "github.com/LukasJoswiak/etch"
 
