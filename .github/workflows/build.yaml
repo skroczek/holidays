@@ -39,10 +39,11 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          hugo \\
-            --gc \\
-            --minify \\
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/" \
+            --cacheDir "${{ runner.temp }}/hugo_cache"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
