@@ -6,7 +6,7 @@ from icalendar import Calendar, Event
 import uuid
 from datetime import datetime
 from holidays.countries.germany import Germany
-
+from typing import Optional
 
 class GermanyWithAugsburg(Germany):
     supported_categories = (CATHOLIC, PUBLIC, UNOFFICIAL)
@@ -93,7 +93,6 @@ def generate_calendar(
 
     if metadata_file:
         import yaml
-        from datetime import datetime
         metadata = {
             "title": title,
             "region": region,
