@@ -31,6 +31,7 @@ for cal in config.get("calendars", []):
     output_path = OUTPUT_DIR / file_name
     category_keys = cal.get("categories", ["public"])
     categories = [CATEGORY_MAP[c] for c in category_keys if c in CATEGORY_MAP]
+    title = cal.get("title", "")
 
     print(f"Generating {file_name}...")
-    generate_calendar(start_year, end_year, region, str(output_path), categories)
+    generate_calendar(start_year, end_year, region, str(output_path), categories, title)

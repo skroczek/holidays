@@ -1,0 +1,19 @@
+baseURL: "https://skroczek.github.io/ical-holidays/"
+title: "ical-holidays"
+theme: "github.com/LukasJoswiak/etch"
+
+module:
+  imports:
+    - path: github.com/LukasJoswiak/etch
+
+languageCode: "en-us"
+defaultContentLanguage: "en"
+
+disableKinds:
+  - taxonomy
+  - taxonomyTerm
+
+taxonomies: {}
+
+menu:
+  main: []
