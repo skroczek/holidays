@@ -53,7 +53,8 @@ def generate_calendar(
         state_holidays = GermanyWithAugsburg(
             years=year,
             subdiv=state.split("_", 1)[0],
-            categories=categories
+            categories=categories,
+            language="de",
         )
         for day, name in sorted(state_holidays.items()):
             month_day = (day.month, day.day, name)

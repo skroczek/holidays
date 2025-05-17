@@ -2,12 +2,6 @@ import yaml
 from pathlib import Path
 from datetime import date
 from holidays_print import generate_calendar, PUBLIC, UNOFFICIAL, CATHOLIC  # angepasst für Direktnutzung
-import locale
-
-try:
-    locale.setlocale(locale.LC_TIME, "de_DE.UTF-8")
-except locale.Error:
-    print("Warning: de_DE.UTF-8 locale not available, falling back.")
 
 CONFIG_FILE = Path("data/ical.yaml")
 OUTPUT_DIR = Path("static/ical")

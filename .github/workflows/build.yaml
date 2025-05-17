@@ -16,24 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install German locale
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y locales
-          sudo locale-gen de_DE.UTF-8
-          sudo update-locale LANG=de_DE.UTF-8
-
-      - name: Set locale for current session
-        run: |
-          export LANG=de_DE.UTF-8
-          export LANGUAGE=de_DE:de
-          export LC_ALL=de_DE.UTF-8
-          locale
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
-
 
       - name: Setup Python
         uses: actions/setup-python@v5
