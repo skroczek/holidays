@@ -10,6 +10,8 @@ from holidays_print import AUGSBURG
 CONFIG_FILE = Path("data/ical.yaml")
 OUTPUT_DIR = Path("public/ical")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+RESOURCES_DIR = Path("resources/_gen")
+RESOURCES_DIR.mkdir(parents=True, exist_ok=True)
 # Clean up output directory (remove all existing .ics files)
 for file in OUTPUT_DIR.glob("*.ics"):
     file.unlink()
