@@ -1,6 +1,11 @@
 import './style.css';
 import data from '../resources/_gen/metadata_all.json' with {type: 'json'};
 
+function buildCalendarUrl(filename) {
+  const url = new URL(`ical/${filename}`, window.location.href);
+  return url.href;
+}
+
 const container = document.getElementById('calendar-list');
 
 function createHolidayTag(name) {
@@ -18,7 +23,7 @@ function createCalendarCard(calendar) {
       <div class="space-y-3">
         <p class="font-bold text-xl text-gray-900 dark:text-white tracking-tight">${calendar.title}</p>
         <div class="bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-700 rounded-lg p-3 flex items-center gap-2 shadow-inner">
-          <input class="flex-1 px-3 py-2 rounded-md font-mono text-sm bg-transparent text-gray-800 dark:text-gray-100 focus:outline-none" readonly id="input-${calendar.file.replace('.ics', '')}" value="${location.origin}/ical/${calendar.file}">
+          <input class="flex-1 px-3 py-2 rounded-md font-mono text-sm bg-transparent text-gray-800 dark:text-gray-100 focus:outline-none" readonly id="input-${calendar.file.replace('.ics', '')}" value="${buildCalendarUrl(calendar.file)}">
           <button class="copy-btn px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white rounded-md text-sm shadow-md transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500">Copy</button>
         </div>
         <div class="copy-feedback hidden text-green-600 dark:text-green-400 text-sm">✓ In die Zwischenablage kopiert</div>
