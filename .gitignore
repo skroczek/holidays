@@ -16,29 +16,13 @@ venv/
 # Created by https://www.toptal.com/developers/gitignore/api/hugo
 # Edit at https://www.toptal.com/developers/gitignore?templates=hugo
 
-### Hugo ###
-# Generated files by hugo
-/public/
-/resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
-
-# Executable may be added to repository
-hugo.exe
-hugo.darwin
-hugo.linux
-
-# Temporary lock file while building
-/.hugo_build.lock
-
 # End of https://www.toptal.com/developers/gitignore/api/hugo
 
 # Avoid committing generated calendar files
-/static/ical/*.ics
+/public/ical/*.ics
+/resources/_gen
 
 # Keep the directory itself
-!static/ical/.gitkeep
-
-# Node/npm cache (if used for Hugo themes or tooling)
-node_modules/
-package-lock.json
+!public/ical/.gitkeep
+/node_modules/
+/dist/

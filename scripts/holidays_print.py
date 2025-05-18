@@ -1,3 +1,4 @@
+import json
 from datetime import date, timedelta
 import argparse
 from gettext import gettext as tr
@@ -8,8 +9,11 @@ from datetime import datetime
 from holidays.countries.germany import Germany
 from typing import Optional
 
+AUGSBURG = "augsburg"
+
+
 class GermanyWithAugsburg(Germany):
-    supported_categories = (CATHOLIC, PUBLIC, UNOFFICIAL)
+    supported_categories = (CATHOLIC, PUBLIC, UNOFFICIAL, AUGSBURG)
 
     def _populate_subdiv_by_unofficial_holidays(self):
         self._add_holiday_feb_14(tr("Valentinstag"))
@@ -26,6 +30,10 @@ class GermanyWithAugsburg(Germany):
         self._add_ash_monday(tr("Rosenmontag"))
         self._add_carnival_tuesday(tr("Faschingsdienstag"))
         self._add_ash_wednesday(tr("Aschermittwoch"))
+
+    def _populate_subdiv_by_augsburg_holidays(self):
+        if self._year >= 1650:
+            self._add_holiday_aug_8(tr("Augsburger Friedensfest"))
 
 
 def generate_calendar(
@@ -56,11 +64,13 @@ def generate_calendar(
             categories=categories,
             language="de",
         )
-        for day, name in sorted(state_holidays.items()):
-            month_day = (day.month, day.day, name)
-            if month_day not in holidays_by_date:
-                holidays_by_date[month_day] = []
-            holidays_by_date[month_day].append(day)
+        for day in sorted(state_holidays.keys()):
+            names = state_holidays.get_list(day)
+            for name in names:
+                month_day = (day.month, day.day, name)
+                if month_day not in holidays_by_date:
+                    holidays_by_date[month_day] = []
+                holidays_by_date[month_day].append(day)
 
     for (month, day, name), dates in holidays_by_date.items():
         if len(dates) == (end_year - start_year + 1):  # All years have this holiday
@@ -93,7 +103,6 @@ def generate_calendar(
         f.write(calendar.to_ical())
 
     if metadata_file:
-        import yaml
         metadata = {
             "title": title,
             "region": region,
@@ -104,7 +113,7 @@ def generate_calendar(
             "holidays": sorted(set(name for (_, _, name) in holidays_by_date.keys()))
         }
         with open(metadata_file, "w", encoding="utf-8") as meta_out:
-            yaml.dump(metadata, meta_out, allow_unicode=True)
+            json.dump(metadata, meta_out)
 
 
 if __name__ == "__main__":

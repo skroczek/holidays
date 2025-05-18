@@ -1,8 +1,14 @@
 calendars:
   - file: de-by-public.ics
     title: Gesetzliche Feiertage – Bayern
-    description: Enthält offizielle gesetzliche Feiertage für Bayern (Deutschland).
+    description: Enthält offizielle gesetzliche Feiertage für Bayern.
     region: BY
+    categories: ["public"]
+
+  - file: de-be-public.ics
+    title: Gesetzliche Feiertage – Berlin
+    description: Enthält offizielle gesetzliche Feiertage für Berlin.
+    region: BE
     categories: ["public"]
 
   - file: de-by-unofficial.ics
@@ -11,8 +17,20 @@ calendars:
     region: BY
     categories: ["unofficial"]
 
+  - file: de-by-unofficial-ev.ics
+    title: Inoffizielle Feiertage – Bayern (ev)
+    description: Enthält ausschließlich inoffizielle Feiertage für Bayern in evangelischen Gemeinden.
+    region: BY
+    categories: ["unofficial", "catholic"]
+
   - file: de-by-catholic.ics
     title: Katholische Feiertage – Bayern
     description: Enthält gesetzliche Feiertage sowie zusätzliche katholische Feiertage wie Mariä Himmelfahrt, relevant für bestimmte katholisch geprägte Regionen in Bayern.
     region: BY
     categories: ["public", "catholic"]
+
+  - file: de-by-augsburg.ics
+    title: Feiertage in Augsburg – Bayern
+    description: Enthält gesetzliche Feiertage sowie zusätzliche katholische Feiertage wie Mariä Himmelfahrt, sowie das Augsburger Friedensfest.
+    region: BY
+    categories: ["public", "catholic", "augsburg"]
