@@ -58,5 +58,5 @@ for cal in config.get("calendars", []):
     })
     metadata_all.append(metadata)
 
-with open("resources/_gen/metadata_all.json", "w", encoding="utf-8") as out:
+with open(RESOURCES_DIR / "metadata_all.json", "w", encoding="utf-8") as out:
     json.dump(metadata_all, out, indent=2, ensure_ascii=False)
