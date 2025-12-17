@@ -20,6 +20,10 @@ class GermanyWithAugsburg(Germany):
         self._add_holiday_oct_31(tr("Halloween"))
         self._add_holiday_dec_6(tr("Nikolaus"))
 
+        # Heiliger Abend und Silvester
+        self._add_holiday_dec_24(tr("Heiliger Abend"))
+        self._add_holiday_dec_31(tr("Silvester"))
+
         # Muttertag: Zweiter Sonntag im Mai
         self._add_holiday_2nd_sun_of_may(tr("Muttertag"))
 
